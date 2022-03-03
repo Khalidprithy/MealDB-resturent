@@ -1,6 +1,7 @@
 const searchMeals = () => {
     const inputValue = document.getElementById('input-text');
     const inputText = inputValue.value;
+    inputValue.value = '';
     const error1 = document.getElementById('error-1');
     const error2 = document.getElementById('error-2');
     console.log(inputText);
@@ -93,8 +94,5 @@ const displayMealDetails = meals => {
             </div>
         `;
     detailsDiv.appendChild(div);
-}
-
-const loadYoutube = () => {
-
+    window.scrollTo(0, 150);
 }
