@@ -2,9 +2,11 @@ const searchMeals = () => {
     const inputValue = document.getElementById('input-text');
     const inputText = inputValue.value;
     const error1 = document.getElementById('error-1');
+    const error2 = document.getElementById('error-2');
     console.log(inputText);
     if (inputText == '') {
         error1.classList.remove('hidden');
+        error2.classList.add('hidden');
     }
     else {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}`;
