@@ -7,44 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
+    <style>
+        header {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        main {
+            font-family: 'Ubuntu', sans-serif;
+        }
+    </style>
     <title>MeadDB</title>
 </head>
 
 <body>
 
     <header>
+
         <!-- Name and search field -->
-        <h4 class="text-center font-semibold text-4xl p-8">MeadDB</h4>
+        <div>
+            <h4 class="text-center font-semibold text-4xl p-8">MealDB</h4>
+        </div>
         <div class="flex justify-center items-center">
-            <input id="input-text" class="border-2 border-black-500 m-2" type="text">
-            <button onclick="searchMeals()"
-                class="bg-teal-600 hover:bg-teal-800 rounded-md py-0.5 px-2 text-slate-200">Search</button>
+            <input id="input-text" class="border-2 border-black-500 rounded-l-full pl-3.5" type="text">
+            <button id="search-btn" onclick="searchMeals()"
+                class="bg-teal-600 hover:bg-teal-800 rounded-r-full py-0.5 px-3 text-slate-200">Search</button>
         </div>
     </header>
-    <!-- error message  -->
-    <div id="error-1" class="flex justify-center items-center hidden">
-        <span class="text-center bg-red-600 rounded-md px-2">Please search a meal</span>
-    </div>
-    <div id="error-2" class="flex justify-center items-center hidden">
-        <span class="text-center bg-red-600 rounded-md px-2">No meal found</span>
-    </div>
-    <!-- meal details -->
 
-
-    <div class="bg-white mx-5">
-        <div id="detail-div" class="flex justify-center items-center lg:max-w-6xl">
-
+    <main>
+        <!-- error message  -->
+        <div id="error-1" class="flex justify-center items-center hidden mt-4">
+            <span class="text-center bg-red-600 rounded-md px-2">Please search a meal</span>
         </div>
-    </div>
-    <!-- search results -->
+        <div id="error-2" class="flex justify-center items-center hidden mt-4">
+            <span class="text-center bg-red-600 rounded-md px-2">No meal found</span>
+        </div>
 
-    <div class="bg-white">
-        <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-            <div id="result-div"
-                class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+
+        <!-- meal details -->
+        <div class="bg-white mx-5 mt-4 flex justify-center items-center">
+            <div id="detail-div" class="flex justify-center items-center lg:max-w-6xl">
+
             </div>
         </div>
-    </div>
+
+
+        <!-- search results -->
+        <div class="bg-white">
+            <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 sm:max-w-7xl lg:max-w-7xl lg:px-8">
+                <div id="result-div"
+                    class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
 
 
     <script src=" js/app.js"></script>

@@ -1,3 +1,13 @@
+var searchBtn = document.getElementById("search-btn");
+var inputText = document.getElementById("input-text");
+
+inputText.addEventListener("keypress", function (event) {
+    // event.preventDefault();
+    if (event.key == 'Enter')
+        searchBtn.click();
+});
+
+
 const searchMeals = () => {
     const inputValue = document.getElementById('input-text');
     const inputText = inputValue.value;
@@ -44,7 +54,7 @@ const displayMeal = meals => {
                         <div class="mt-4 flex justify-center">
                             <div>
                                 <h3 class="text-xl text-gray-700">${meal.strMeal}</h3>
-                                <p class="mt-1 text-xs text-gray-600 p-2">${meal.strInstructions.slice(0, 100)}</p>
+                                <p class="mt-1 text-xs text-gray-600 p-2">${meal.strInstructions.slice(0, 100)} . . . </p>
                                 <button onclick="loadDetails(${meal.idMeal})"
                                     class="bg-teal-600 hover:bg-teal-800 text-slate-200 rounded-md py-0.5 px-2 text-sm">Read More</button>
                             </div>
@@ -74,25 +84,30 @@ const displayMealDetails = meals => {
     detailsDiv.textContent = '';
     div.innerHTML = `
         <div class="group relative drop-shadow-lg border-2 p-2 rounded-md mx-auto">
-                <div
-                    class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-40 lg:w-72 lg:aspect-none">
-                    <img src="${meals.strMealThumb}" alt="Meal image"
-                        class="w-full h-64 object-center object-cover lg:w-full lg:h-64">
-                </div>
-                <div class="mt-4 flex justify-center">
-                    <div>
-                        <h3 class="text-xl text-gray-700">${meals.strMeal}</h3>
-                        <h4>${meals.strArea} </h4>
-                        <h4>${meals.strCategory} </h4>
-                        
-                        <p class="mt-1 text-xs text-gray-600 p-2">${meals.strInstructions.slice(0, 1000)}</p>
-
-                        <button onclick="mealDetails()"
-                            class="bg-red-600 hover:bg-red-800 text-slate-200 rounded-md py-0.5 px-2 text-sm">YouTube</button>
-                    </div>
-                </div>
+        <div class="card" style="width: 28rem;">
+        <img src="${meals.strMealThumb}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${meals.strMeal}</h5>
+          <p class="card-text fw-lighter">${meals.strInstructions}</p>
+        </div>
+        <ol class="list-group list-group-flush">
+          <li class="list-group-item">${meals.strIngredient1}</li>
+          <li class="list-group-item">${meals.strIngredient2}</li>
+          <li class="list-group-item">${meals.strIngredient3}</li>
+          <li class="list-group-item">${meals.strIngredient4}</li>
+          <li class="list-group-item">${meals.strIngredient5}</li>
+          <li class="list-group-item">${meals.strIngredient6}</li>
+        </ol>
+        <div class="card-body">
+          <a href="${meals.strYoutube}" class="card-link">Youtube</a>
+        </div>
+      </div>
             </div>
         `;
     detailsDiv.appendChild(div);
     window.scrollTo(0, 150);
+}
+
+const loadYoutube = () => {
+
 }
